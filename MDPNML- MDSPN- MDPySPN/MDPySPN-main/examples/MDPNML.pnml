@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="heatSeal_multi" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <page id="page0">
+
+      <!-- Declared dimensions (optional) -->
+      <dimensions>
+      	<dimension name="time"/>
+      	<dimension name="Energy"/>
+      	<dimension name="Co2"/>
+      </dimensions>
+
+      <!-- Places -->
+      <place id="p1" dimensionTracked="Energy">
+        <name><text>Sealer standby state</text></name>
+        <initialMarking><text>1</text></initialMarking>
+      </place>
+
+      <place id="p2">
+        <name><text>>New batch arrives</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+
+      <place id="p3">
+        <name><text>Heat-sealing packaging</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+
+      <!-- Transitions -->
+      <transition id="T1" type="T">
+        <name><text>New arrival</text></name>
+        <distribution>
+          <type>expon</type>
+          <parameters>
+            <a>2</a>
+          </parameters>
+        </distribution>
+      </transition>
+
+      <transition id="T2" type="I">
+        <name><text>Start sealing</text></name>
+        <impactedDimensions>
+          <impactedDimension name="Energy">
+            <impactType>rate</impactType>
+            <impactValue>0.01</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+
+      <transition id="T3" type="T">
+        <name><text>Processing (end)</text></name>
+        <distribution>
+          <type>triang</type>
+          <parameters>
+            <!-- SciPy-shaped triangular: shape=0.5, loc=3, scale=1 -->
+            <a>0.5</a>
+            <b>3</b>
+            <c>1</c>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Energy">
+            <impactType>rate</impactType>
+            <impactValue>0.08</impactValue>
+          </impactedDimension>
+          <impactedDimension name="Co2">
+            <impactType>rate</impactType>
+            <impactValue>0.004</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+
+      <!-- Arcs -->
+      <arc id="a1" source="T1" target="p2" type="output">
+        <inscription><text>1</text></inscription>
+      </arc>
+
+      <arc id="a2" source="p1" target="T2" type="input">
+        <inscription><text>1</text></inscription>
+      </arc>
+      <arc id="a3" source="p2" target="T2" type="input">
+        <inscription><text>1</text></inscription>
+      </arc>
+      <arc id="a4" source="T2" target="p3" type="output">
+        <inscription><text>1</text></inscription>
+      </arc>
+
+      <arc id="a5" source="p3" target="T3" type="input">
+        <inscription><text>1</text></inscription>
+      </arc>
+      <arc id="a6" source="T3" target="p1" type="output">
+        <inscription><text>1</text></inscription>
+      </arc>
+
+    </page>
+
+
+  </net>
+</pnml>

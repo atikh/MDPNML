@@ -1,0 +1,42 @@
+Event,Time,Marking
+>New batch arrives,1.5,0
+>New batch arrives,1.5,1
+Sealer standby state,1.5,1
+Heat-sealing packaging,1.5,0
+>New batch arrives,1.5,1
+Heat-sealing packaging,1.5,0
+>New batch arrives,1.5,0
+>New batch arrives,3.0,0
+>New batch arrives,3.0,1
+>New batch arrives,4.5,1
+>New batch arrives,4.5,2
+Heat-sealing packaging,4.76,1
+Sealer standby state,4.76,0
+Heat-sealing packaging,4.76,0
+Sealer standby state,4.76,1
+Sealer standby state,4.76,1
+Heat-sealing packaging,4.76,0
+>New batch arrives,4.76,2
+Heat-sealing packaging,4.76,0
+>New batch arrives,4.76,1
+>New batch arrives,6.0,1
+>New batch arrives,6.0,2
+>New batch arrives,7.5,2
+>New batch arrives,7.5,3
+Heat-sealing packaging,8.39,1
+Sealer standby state,8.39,0
+Heat-sealing packaging,8.39,0
+Sealer standby state,8.39,1
+Sealer standby state,8.39,1
+Heat-sealing packaging,8.39,0
+>New batch arrives,8.39,3
+Heat-sealing packaging,8.39,0
+>New batch arrives,8.39,2
+>New batch arrives,9.0,2
+>New batch arrives,9.0,3
+Sealer standby state,10,0
+Sealer standby state,10,0
+>New batch arrives,10,3
+>New batch arrives,10,3
+Heat-sealing packaging,10,1
+Heat-sealing packaging,10,1

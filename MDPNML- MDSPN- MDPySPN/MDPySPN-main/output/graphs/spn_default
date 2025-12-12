@@ -1,0 +1,30 @@
+digraph {
+	graph [rankdir=TB]
+	node [fillcolor=lightgrey shape=plaintext style=filled]
+	summary [label="Simulation Clock:
+Time: 60.00
+Energy: 4.64
+Co2: 0.23
+"]
+	node [fillcolor="" shape=ellipse style=""]
+	"Sealer standby state" [label="" fixedsize=true height=0.6 shape=circle width=0.6 xlabel=""]
+	">New batch arrives" [label=24 fixedsize=true height=0.6 shape=circle width=0.6 xlabel=""]
+	"Heat-sealing packaging" [label=<&#9679;> fixedsize=true height=0.6 shape=circle width=0.6 xlabel=""]
+	"New arrival" [label="" fillcolor="white:black:black" fixedsize=true height=0.2 shape=rect style=striped width=0.6 xlabel="New arrival"]
+	"New arrival" -> ">New batch arrives" [label=""]
+	"Start sealing" [label="" fillcolor="black:white:black" fixedsize=true height=0.2 shape=rect style=striped width=0.6 xlabel="Start sealing"]
+	"Start sealing_spacer" [label="" height=0 style=invis width=0]
+	"Start sealing_table" [label=<<table border='1' cellborder='1' cellspacing='0'><tr><td>Energy</td><td>0.02</td></tr></table>> shape=plaintext]
+	"Start sealing_spacer" -> "Start sealing" [style=invis]
+	"Start sealing_spacer" -> "Start sealing_table" [style=invis]
+	"Sealer standby state" -> "Start sealing" [label=""]
+	">New batch arrives" -> "Start sealing" [label=""]
+	"Start sealing" -> "Heat-sealing packaging" [label=""]
+	"Processing (end)" [label="" fillcolor="white:white:white" fixedsize=true height=0.2 shape=rect style=striped width=0.6 xlabel="Processing (end)"]
+	"Processing (end)_spacer" [label="" height=0 style=invis width=0]
+	"Processing (end)_table" [label=<<table border='1' cellborder='1' cellspacing='0'><tr><td>Energy</td><td>4.62</td></tr><tr><td>Co2</td><td>0.23</td></tr></table>> shape=plaintext]
+	"Processing (end)_spacer" -> "Processing (end)" [style=invis]
+	"Processing (end)_spacer" -> "Processing (end)_table" [style=invis]
+	"Heat-sealing packaging" -> "Processing (end)" [label=""]
+	"Processing (end)" -> "Sealer standby state" [label=""]
+}
