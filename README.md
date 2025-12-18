@@ -7,7 +7,8 @@
 MDPNML is a PNML-compatible representation for Multidimensional Stochastic Petri Nets (MDSPNs). Our goal is to encode every modeling element required for MDSPN simulation while remaining compatible with standard PNML parsers and simulators. MDPNML preserves PNML’s core structure (places, transitions, arcs, names, markings), while adding explicit dimension definitions and transition-level impact annotations for non-temporal dimensions, such as energy use and waste generation. MDSPN also records probability distributions, guard functions, and initial marking to ensure reproducibility and reliable model regeneration.
 As illustrated in the following figure, MDPNML supports four main uses after MDSPN model extraction from the real system (though it is not limited to these four):
 
-<img width="442" height="130" alt="image" src="https://github.com/user-attachments/assets/4c5b42ef-46ac-40c2-afff-955dfb8138c3" />
+<img width="3244" height="1198" alt="4" src="https://github.com/user-attachments/assets/0e5f3643-3757-40e8-badd-3d11b3eef85d" />
+
 
 1.	Unidimensional model analysis: MDPNML enables per-dimension model projections (time, energy, waste, CO₂), allowing  analysts to isolate, inspect, and edit a single dimension independently of the others.
 2.	Time-oriented DTs: The time-oriented SPN remains in standard PNML format and can run unchanged on existing PNML-compliant simulators, enabling conventional discrete-event simulation studies and seamless deployment as time-oriented DTs.
