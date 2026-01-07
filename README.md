@@ -21,8 +21,16 @@ For detailed information on MDPNML generation, please refer to our published pap
 ## Usage & Attribution
 
 If you are using the tool for a scientific project please consider citing our [publication]
- #  - ...
- [1].   @misc{} 
+ #  - [...](https://www.researchgate.net/profile/Atieh-Khodadadi)
+ [1].   @misc{Khodadadi2026,
+    url = {[https://www.researchgate.net/publication/375758652_PySPN_An_Extendable_Python_Library_for_Modeling_Simulation_of_Stochastic_Petri_Nets](https://www.researchgate.net/publication/398860321_MDPNML_A_Multidimensional_Petri_Net_Markup_Language_Enabling_Construction_and_Simulation_of_Comprehensive_Digital_Twin_Models?_tp=eyJjb250ZXh0Ijp7InBhZ2UiOiJwcm9maWxlIiwicHJldmlvdXNQYWdlIjpudWxsLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19)},
+    year = 2026,
+    month = {March},
+    author = {Khodadadi, Atieh and Lazarova-Molnar, Sanja},
+    title = {MDPNML: A Multidimensional Petri Net Markup Language Enabling Construction and Simulation of Comprehensive Digital Twin Models},
+    conference = {14th International Conference on Model-Based Software and Systems Engineering (MODELSWARD},
+    note = {preprint}
+}  
 
 For questions/feedback feel free to contact me: atieh.khodadadi@kit.edu
 
