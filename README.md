@@ -20,7 +20,8 @@ For detailed information on MDPNML generation, please refer to our published pap
 
 ## Usage & Attribution
 
-If you are using the tool for a scientific project please consider citing our [publication]
+If you are using the tool for a scientific project please consider citing our [publication: https://publikationen.bibliothek.kit.edu/1000191597 ]
+
  Khodadadi, A., & Lazarova-Molnar, S. (2026). MDPNML: A Multidimensional Petri Net Markup Language Enabling Construction and Simulation of Comprehensive Digital Twin Models. In The International Conference on Model-Based Software and Systems Engineering (MODELSWARD).
 }  
 
