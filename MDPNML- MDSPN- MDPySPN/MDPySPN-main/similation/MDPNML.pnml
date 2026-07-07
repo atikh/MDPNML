@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="heatSeal_multi" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <page id="page0">
+
+      <!-- Declared dimensions -->
+      <dimensions>
+        <dimension name="time" initialValue="0.0"/>
+        <dimension name="Grid" initialValue="0.0"/>
+      </dimensions>
+
+      <!-- Places -->
+      <place id="pA1">
+        <name><text>NIR Eqpt_Ready_NIR Check</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p1">
+        <name><text>Dispensing liquid components_Liquid Blending</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="pI1" dimensionTracked="Grid" DoT="1">
+        <name><text>Dispensing Cabinet Eqpt_Off</text></name>
+        <initialMarking><text>1</text></initialMarking>
+      </place>
+      <place id="pI2" dimensionTracked="Grid" DoT="1">
+        <name><text>Dispensing Mixers Eqpt_Off</text></name>
+        <initialMarking><text>1</text></initialMarking>
+      </place>
+      <place id="p2">
+        <name><text>Dispensing solid components_Blending</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="pA2">
+        <name><text>Granulator Eqpt_Ready_Granulation</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p3">
+        <name><text>Blending_NIR Check</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="pA3">
+        <name><text>Tablet Press Eqpt_Ready_Compression</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="pI3" dimensionTracked="Grid" DoT="1">
+        <name><text>NIR Eqpt_idle</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="pI4" dimensionTracked="Grid" DoT="1">
+        <name><text>Granulator Eqpt_idle</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p5">
+        <name><text>NIR Check Accepted_Granulation filling</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="pI5" dimensionTracked="Grid" DoT="1">
+        <name><text>Tablet Press Eqpt_idle</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p6">
+        <name><text>Granulation filling_Granulation</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p7">
+        <name><text>Granulation_Granulation discharge</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p8">
+        <name><text>Granulation discharge_Screening</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p9">
+        <name><text>Screening_Compression filling</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p10">
+        <name><text>Compression filling_Compression</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p13">
+        <name><text>Dispensing liquid components_Dispensing solid components</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p14">
+        <name><text>Liquid Blending_Blending</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p15">
+        <name><text>Buffer_to_Dispensing liquid components</text></name>
+        <initialMarking><text>3</text></initialMarking>
+      </place>
+      <place id="p16">
+        <name><text>NIR Check_XOR</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p17">
+        <name><text>Blending_rework_gate</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p18">
+        <name><text>Granulator Eqpt_Off</text></name>
+        <initialMarking><text>1</text></initialMarking>
+      </place>
+      <place id="p19">
+        <name><text>Granulator Eqpt_Initialisation</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p20">
+        <name><text>Granulator Eqpt_Preheat</text></name>
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <place id="p21">
+        <name><text>NIR Eqpt_Off</text></name>
+        <initialMarking><text>1</text></initialMarking>
+      </place>
+
+      <!-- Transitions -->
+      <transition id="t1" type="T" input_transition="True">
+        <name><text>Dispensing liquid components</text></name>
+        <distribution>
+          <type>det</type>
+          <parameters>
+            <a>1344.0</a>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.05991229848996096</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t2" type="T">
+        <name><text>Liquid Blending</text></name>
+        <distribution>
+          <type>det</type>
+          <parameters>
+            <a>6112.0</a>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.010057174423422188</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t3" type="T">
+        <name><text>Dispensing solid components</text></name>
+        <distribution>
+          <type>norm</type>
+          <parameters>
+            <a>349.3333333333333</a>
+            <b>92.52146898002766</b>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.05991229848996096</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t4" type="T">
+        <name><text>Blending</text></name>
+        <distribution>
+          <type>expon</type>
+          <parameters>
+            <a>23.0</a>
+            <b>69.15384615384616</b>
+          </parameters>
+        </distribution>
+      </transition>
+      <transition id="t5" type="T">
+        <name><text>NIR Check</text></name>
+        <distribution>
+          <type>expon</type>
+          <parameters>
+            <a>31.0</a>
+            <b>29.846153846153847</b>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.01234742564105172</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t6" type="I">
+        <name><text>NIR Check Accepted</text></name>
+        <weight>0.23076923076923078</weight>
+      </transition>
+      <transition id="t7" type="T">
+        <name><text>Granulation filling</text></name>
+        <distribution>
+          <type>norm</type>
+          <parameters>
+            <a>110.33333333333333</a>
+            <b>20.75786330258702</b>
+          </parameters>
+        </distribution>
+      </transition>
+      <transition id="t8" type="T">
+        <name><text>Granulation</text></name>
+        <distribution>
+          <type>lognorm</type>
+          <parameters>
+            <a>0.024560680238349</a>
+            <b>0.0</b>
+            <c>4669.251907246177</c>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>1.055492216619183</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t9" type="T">
+        <name><text>Granulation discharge</text></name>
+        <distribution>
+          <type>weibull_min</type>
+          <parameters>
+            <a>16.975280605935303</a>
+            <b>0.0</b>
+            <c>197.84682482529894</c>
+          </parameters>
+        </distribution>
+      </transition>
+      <transition id="t10" type="T">
+        <name><text>Screening</text></name>
+        <distribution>
+          <type>expon</type>
+          <parameters>
+            <a>366.0</a>
+            <b>32.0</b>
+          </parameters>
+        </distribution>
+      </transition>
+      <transition id="t11" type="T">
+        <name><text>Compression filling</text></name>
+        <distribution>
+          <type>gamma</type>
+          <parameters>
+            <a>15.300599355033992</a>
+            <b>0.0</b>
+            <c>8.12604332995798</c>
+          </parameters>
+        </distribution>
+      </transition>
+      <transition id="t12" type="T" output_transition="True">
+        <name><text>Compression</text></name>
+        <distribution>
+          <type>gamma</type>
+          <parameters>
+            <a>29.45918546022789</a>
+            <b>0.0</b>
+            <c>20.887656047519695</c>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>fixed</impactType>
+            <impactValue>98.12199999999939</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t13" type="I">
+        <name><text>NIR Check Rejected</text></name>
+        <weight>0.7692307692307693</weight>
+      </transition>
+      <transition id="t14" type="I" asset_level="True">
+        <name><text>NIR Eqpt_ready</text></name>
+        <weight>1.0</weight>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.012347</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t15" type="I" asset_level="True">
+        <name><text>Granulator Eqpt_ready</text></name>
+        <weight>1.0</weight>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.178856</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t16" type="I" asset_level="True">
+        <name><text>Tablet Press Eqpt_ready</text></name>
+        <weight>1.0</weight>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.006699</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t17" type="I">
+        <name><text>Blending condition</text></name>
+        <weight>1.0</weight>
+      </transition>
+      <transition id="t18" type="T" asset_level="True">
+        <name><text>Granulator Eqpt_Off_to_Initialisation</text></name>
+        <distribution>
+          <type>det</type>
+          <parameters>
+            <a>1368.0</a>
+          </parameters>
+        </distribution>
+      </transition>
+      <transition id="t19" type="T" asset_level="True">
+        <name><text>Granulator Eqpt_Initialisation_to_Idle</text></name>
+        <distribution>
+          <type>det</type>
+          <parameters>
+            <a>360.0</a>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.869444</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t20" type="T" asset_level="True">
+        <name><text>Granulator Eqpt_Idle_to_Preheat</text></name>
+        <distribution>
+          <type>det</type>
+          <parameters>
+            <a>1743.428571</a>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.178856</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t21" type="T" asset_level="True">
+        <name><text>Granulator Eqpt_Preheat_to_Idle</text></name>
+        <distribution>
+          <type>det</type>
+          <parameters>
+            <a>458.333333</a>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>1.524185</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t22" type="T" asset_level="True">
+        <name><text>NIR Eqpt_Off_to_Idle</text></name>
+        <distribution>
+          <type>det</type>
+          <parameters>
+            <a>1409.0</a>
+          </parameters>
+        </distribution>
+      </transition>
+      <transition id="t23" type="T" asset_level="True">
+        <name><text>Tablet Press Eqpt_Idle_to_Off</text></name>
+        <distribution>
+          <type>det</type>
+          <parameters>
+            <a>60.0</a>
+          </parameters>
+        </distribution>
+        <impactedDimensions>
+          <impactedDimension name="Grid" direction="increase">
+            <impactType>rate</impactType>
+            <impactValue>0.006699</impactValue>
+          </impactedDimension>
+        </impactedDimensions>
+      </transition>
+      <transition id="t24" type="I" asset_level="True">
+        <name><text>Dispensing_Cabinet_Eqpt_Off_Dispensing_liquid_components_surplus_token_cleanup</text></name>
+        <weight>1.0</weight>
+      </transition>
+
+      <!-- Arcs -->
+      <arc id="a1" source="pI1" target="t1" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a2" source="pI2" target="t2" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a3" source="pI3" target="t14" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a4" source="pI4" target="t15" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a5" source="pI5" target="t16" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a6" source="t14" target="pA1" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a7" source="pA1" target="t5" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a8" source="t15" target="pA2" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a9" source="pA2" target="t8" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a10" source="t16" target="pA3" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a11" source="pA3" target="t12" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a12" source="t3" target="pI1" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a13" source="t2" target="pI2" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a14" source="t5" target="pI3" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a15" source="t8" target="pI4" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a16" source="t12" target="pI5" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a17" source="p15" target="t1" type="input">
+        <inscription>
+          <text>3</text>
+        </inscription>
+      </arc>
+      <arc id="a18" source="t1" target="p1" type="output">
+        <inscription>
+          <text>3</text>
+        </inscription>
+      </arc>
+      <arc id="a19" source="p1" target="t2" type="input">
+        <inscription>
+          <text>3</text>
+        </inscription>
+      </arc>
+      <arc id="a20" source="t3" target="p2" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a21" source="t4" target="p3" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a22" source="p3" target="t14" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a23" source="t5" target="p16" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a24" source="p16" target="t6" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a25" source="t6" target="p5" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a26" source="p5" target="t7" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a27" source="t7" target="p6" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a28" source="p6" target="t15" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a29" source="t8" target="p7" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a30" source="p7" target="t9" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a31" source="t9" target="p8" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a32" source="p8" target="t10" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a33" source="t10" target="p9" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a34" source="p9" target="t11" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a35" source="t11" target="p10" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a36" source="p10" target="t16" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a37" source="p16" target="t13" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a38" source="t1" target="p13" type="output">
+        <inscription>
+          <text>3</text>
+        </inscription>
+      </arc>
+      <arc id="a39" source="p13" target="t3" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a40" source="t2" target="p14" type="output">
+        <inscription>
+          <text>3</text>
+        </inscription>
+      </arc>
+      <arc id="a41" source="p2" target="t17" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a42" source="p14" target="t17" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a43" source="t17" target="p17" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a44" source="p17" target="t4" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a45" source="t13" target="p17" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a46" source="p18" target="t18" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a47" source="t18" target="p19" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a48" source="p19" target="t19" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a49" source="t19" target="pI4" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a50" source="pI4" target="t20" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a51" source="t20" target="p20" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a52" source="p20" target="t21" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a53" source="t21" target="pI4" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a54" source="p21" target="t22" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a55" source="t22" target="pI3" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a56" source="t11" target="pI5" type="output">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a57" source="pI5" target="t23" type="input">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a58" source="pI1" target="t24" type="input">
+        <inscription>
+          <text>2</text>
+        </inscription>
+      </arc>
+
+    </page>
+  </net>
+</pnml>
